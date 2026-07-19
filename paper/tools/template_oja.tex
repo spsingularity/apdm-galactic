@@ -1,0 +1,89 @@
+% Pandoc template for The Open Journal of Astrophysics. Engine: pdflatex.
+% OJA is an arXiv-overlay journal (any arXiv-acceptable format is allowed) that emulates ApJ;
+% its own openjournal.cls (2015) is incompatible with current revtex4-2, so we use the
+% maintained AAS journal class aastex631, which is the format OJA is modelled on.
+\documentclass{aastex631}   % onecolumn manuscript mode — pandoc's longtable needs single column
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}\usepackage[utf8]{inputenc}
+\else
+  \usepackage{fontspec}\setmainfont{STIX Two Text}
+\fi
+\usepackage{amssymb}
+% make bare math commands the preprocessors may leave in text mode robust (√ -> \surd etc.)
+\let\pandocsurd\surd \renewcommand{\surd}{\ensuremath{\pandocsurd}}
+
+% --- prose Unicode -> math (pdflatex-safe via newunicodechar) ---
+\usepackage{newunicodechar}
+\newunicodechar{₀}{\ensuremath{{}_0}}\newunicodechar{₁}{\ensuremath{{}_1}}
+\newunicodechar{₂}{\ensuremath{{}_2}}\newunicodechar{₃}{\ensuremath{{}_3}}
+\newunicodechar{₄}{\ensuremath{{}_4}}\newunicodechar{₅}{\ensuremath{{}_5}}
+\newunicodechar{₆}{\ensuremath{{}_6}}\newunicodechar{₇}{\ensuremath{{}_7}}
+\newunicodechar{₈}{\ensuremath{{}_8}}\newunicodechar{₉}{\ensuremath{{}_9}}
+\newunicodechar{₊}{\ensuremath{{}_+}}\newunicodechar{₋}{\ensuremath{{}_-}}
+\newunicodechar{⁰}{\ensuremath{{}^0}}\newunicodechar{¹}{\ensuremath{{}^1}}
+\newunicodechar{²}{\ensuremath{{}^2}}\newunicodechar{³}{\ensuremath{{}^3}}
+\newunicodechar{⁴}{\ensuremath{{}^4}}\newunicodechar{⁵}{\ensuremath{{}^5}}
+\newunicodechar{⁶}{\ensuremath{{}^6}}\newunicodechar{⁷}{\ensuremath{{}^7}}
+\newunicodechar{⁸}{\ensuremath{{}^8}}\newunicodechar{⁹}{\ensuremath{{}^9}}
+\newunicodechar{⁺}{\ensuremath{{}^+}}\newunicodechar{⁻}{\ensuremath{{}^-}}
+\newunicodechar{→}{\ensuremath{\rightarrow}}\newunicodechar{∂}{\ensuremath{\partial}}
+\newunicodechar{∈}{\ensuremath{\in}}\newunicodechar{∎}{\ensuremath{\blacksquare}}
+\newunicodechar{□}{\ensuremath{\Box}}\newunicodechar{∝}{\ensuremath{\propto}}
+\newunicodechar{∞}{\ensuremath{\infty}}\newunicodechar{∫}{\ensuremath{\int}}
+\newunicodechar{≈}{\ensuremath{\approx}}\newunicodechar{≠}{\ensuremath{\neq}}
+\newunicodechar{≡}{\ensuremath{\equiv}}\newunicodechar{≤}{\ensuremath{\leq}}
+\newunicodechar{≥}{\ensuremath{\geq}}\newunicodechar{≪}{\ensuremath{\ll}}
+\newunicodechar{≫}{\ensuremath{\gg}}\newunicodechar{≲}{\ensuremath{\lesssim}}
+\newunicodechar{≳}{\ensuremath{\gtrsim}}\newunicodechar{⊙}{\ensuremath{\odot}}
+\newunicodechar{⊗}{\ensuremath{\otimes}}\newunicodechar{√}{\ensuremath{\surd}}
+\newunicodechar{∼}{\ensuremath{\sim}}\newunicodechar{∇}{\ensuremath{\nabla}}
+\newunicodechar{↔}{\ensuremath{\leftrightarrow}}\newunicodechar{⟨}{\ensuremath{\langle}}
+\newunicodechar{⟩}{\ensuremath{\rangle}}\newunicodechar{−}{\ensuremath{-}}
+\newunicodechar{ℓ}{\ensuremath{\ell}}\newunicodechar{ħ}{\ensuremath{\hbar}}
+\newunicodechar{′}{\ensuremath{{}^\prime}}\newunicodechar{×}{\ensuremath{\times}}
+\newunicodechar{·}{\ensuremath{\cdot}}\newunicodechar{±}{\ensuremath{\pm}}
+\newunicodechar{⇒}{\ensuremath{\Rightarrow}}\newunicodechar{⇔}{\ensuremath{\Leftrightarrow}}
+\newunicodechar{◆}{\ensuremath{\blacklozenge}}\newunicodechar{✓}{\ensuremath{\checkmark}}
+\newunicodechar{✗}{\ensuremath{\times}}\newunicodechar{𝓗}{\ensuremath{\mathcal{H}}}
+\newunicodechar{𝒟}{\ensuremath{\mathcal{D}}}\newunicodechar{𝒮}{\ensuremath{\mathcal{S}}}
+\newunicodechar{𝓜}{\ensuremath{\mathcal{M}}}
+
+% --- pandoc body requirements ---
+\usepackage{longtable,booktabs,array}
+\usepackage{calc}   % pandoc relative-width table columns: p{(\linewidth - ...) * \real{}}
+\usepackage{float}
+\makeatletter
+\newsavebox\pandoc@box
+\newcommand*\pandocbounded[1]{%
+  \sbox\pandoc@box{#1}%
+  \Gscale@div\@tempa{\textheight}{\dimexpr\ht\pandoc@box+\dp\pandoc@box\relax}%
+  \Gscale@div\@tempb{\linewidth}{\wd\pandoc@box}%
+  \ifdim\@tempb\p@<\@tempa\p@\let\@tempa\@tempb\fi%
+  \ifdim\@tempa\p@<\p@\scalebox{\@tempa}{\usebox\pandoc@box}%
+  \else\usebox{\pandoc@box}%
+  \fi%
+}
+\makeatother
+\providecommand{\tightlist}{\setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\graphicspath{{../}{../figures/}{../../results/}}
+
+\shorttitle{The Galactic Face of the Entropy Clock}
+\shortauthors{Pandev}
+
+\begin{document}
+\title{$title$}
+\author{Stilian Pandev}
+\affiliation{Independent researcher}
+\email{stilianpandev@gmail.com}
+
+\begin{abstract}
+$abstract$
+\end{abstract}
+$if(keywords)$\keywords{$keywords$}$endif$
+
+$body$
+
+\bibliographystyle{aasjournal}
+\bibliography{refs}
+\end{document}
