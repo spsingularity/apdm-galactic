@@ -1,0 +1,21 @@
+cff-version: 1.2.0
+message: "If you use this software or data, please cite both the article and this archive."
+type: software
+title: "The Galactic Face of the Entropy Clock: MOND as a Rate-Branch Acceleration Scale a₀ ∝ H(z)"
+abstract: "Code and data for the galactic-face paper testing whether the MOND acceleration scale tracks a₀ ∝ H(z) (rate branch) versus √ρ_DE (density branch) against the MUSE-DARK III measurements."
+authors:
+  - family-names: Pandev
+    given-names: Stilian
+    orcid: "https://orcid.org/0009-0005-8153-071X"
+    affiliation: "Independent researcher"
+version: 1.0.0
+date-released: 2026-07-23
+license: MIT
+repository-code: "https://github.com/spsingularity/apdm-galactic"
+keywords:
+  - "modified Newtonian dynamics"
+  - "galaxy rotation curves"
+  - "dark energy"
+  - "emergent gravity"
+  - "radial acceleration relation"
+  - "MOND"

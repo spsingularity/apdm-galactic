@@ -1,0 +1,19 @@
+# apdm-galactic — reproduce the paper's quantitative results (reproduce.py)
+#
+# Core numerics (all self-contained + [SEDE] experiments):
+numpy>=1.24
+scipy>=1.10
+
+# Figure generation (figures/make_figures.py, src/make_apdm_figures.py):
+matplotlib
+
+# Reading the GEMA-VAC .fits catalogue (src/test_law_vs_attractor_gema.py, [data]):
+astropy
+
+# The [SEDE] experiments import the vendored sede/ package (src/sede/), which only
+# needs numpy/scipy for the friedmann + theory modules used here. Its optional
+# heavy dependencies (camb, classy, emcee, colossus, corner) are NOT required to
+# reproduce the APDM results and are intentionally omitted.
+#
+# Paper build (paper/build.sh) requires system tools, not pip packages:
+#   pandoc, xelatex (TeX Live), poppler (pdfinfo). glyphs.py uses only the stdlib.

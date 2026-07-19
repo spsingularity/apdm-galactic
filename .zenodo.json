@@ -1,0 +1,22 @@
+{
+  "title": "The Galactic Face of the Entropy Clock: MOND as a Rate-Branch Acceleration Scale a₀ ∝ H(z)",
+  "description": "Code and data for the galactic-face paper testing whether the MOND acceleration scale tracks a₀ ∝ H(z) (rate branch) versus √ρ_DE (density branch) against the MUSE-DARK III measurements.",
+  "creators": [
+    {
+      "name": "Pandev, Stilian",
+      "orcid": "0009-0005-8153-071X",
+      "affiliation": "Independent researcher"
+    }
+  ],
+  "upload_type": "software",
+  "license": "mit",
+  "access_right": "open",
+  "keywords": [
+    "modified Newtonian dynamics",
+    "galaxy rotation curves",
+    "dark energy",
+    "emergent gravity",
+    "radial acceleration relation",
+    "MOND"
+  ]
+}
