@@ -25,7 +25,9 @@ open('.build.md','w',encoding='utf-8').write(head+body)
 PY
 pandoc -f markdown-superscript-subscript .build.md -o tex/$BASE.tex \
   --standalone --shift-heading-level-by=-1 --natbib --template=tools/template_mnras.tex
-perl -0pi -e 's#(\\begin\{keywords\}\s*\n)([^\\]*?)(\n\s*\\end\{keywords\})#my ($a,$k,$z)=($1,$2,$3); $k =~ s{,\s*}{ -- }g; "$a$k$z"#se' tex/$BASE.tex
+perl -0pi -e 's#(\\begin\{keywords\}\s*\n)([^\\]*?)(\n\s*\\end\{keywords\})#my ($a,$k,$z)=($1,$2,$3); $k =~ s{[;,]\s*}{ -- }g; "$a$k$z"#se' tex/$BASE.tex
+# make long monospace paths breakable (prevents right-margin overflow)
+perl -0pi -e 's{\\texttt\{([^{}]*)\}}{"\\texttt{".($1=~s#([/._])#$1\\allowbreak #gr)."}"}ge' tex/$BASE.tex
 perl -0pi -e 's/\\\[/\\begin{equation}/g; s/\\\]/\\end{equation}/g' tex/$BASE.tex
 ( cd tex && \
   xelatex -interaction=nonstopmode $BASE.tex >$BASE.build.log 2>&1 ; \

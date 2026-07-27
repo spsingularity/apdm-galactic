@@ -138,8 +138,7 @@ the central tension this branch must survive.
 \end{abstract}
 
 \begin{keywords}
-modified Newtonian dynamics; galaxy rotation curves; dark energy;
-emergent gravity; radial acceleration relation
+modified Newtonian dynamics -- galaxy rotation curves -- dark energy -- emergent gravity -- radial acceleration relation
 \end{keywords}
 
 \section{Introduction}\label{sec-1}
@@ -267,8 +266,8 @@ dark--visible energy exchange.
 The observable that separates the branches is the ratio
 a\(_{0}\)(z\_hi)/a\(_{0}\)(z\_lo). We fix the DESI-template expansion
 history and evaluate both templates over the MUSE-DARK III interval z:
-0.33 \(\to\) 1.44 (script \texttt{branch\_discrimination\_test.py},
-template quantiles from \texttt{desi\_template\_quantiles.csv}):
+0.33 \(\to\) 1.44 (script \texttt{branch\_\allowbreak discrimination\_\allowbreak test.\allowbreak py},
+template quantiles from \texttt{desi\_\allowbreak template\_\allowbreak quantiles.\allowbreak csv}):
 
 \begin{longtable}[]{@{}
   >{\raggedright\arraybackslash}p{(\linewidth - 4\tabcolsep) * \real{0.3333}}
@@ -326,7 +325,7 @@ a\(_{0}\)(1.44)/a\(_{0}\)(0.33) = \textbf{2.157 \(\pm\) 0.061}
 
 i.e.~a\(_{0}\) \textbf{rises} by a factor \textasciitilde2.2 from z =
 0.33 to z = 1.44 (matched to the data by the script
-\texttt{branch\_discrimination\_test.py}).
+\texttt{branch\_\allowbreak discrimination\_\allowbreak test.\allowbreak py}).
 
 \textbf{Verdict on the density branch.} The density branch predicts
 0.88--0.91 --- a \emph{fall} --- because \(\rho\)\_DE falls while the
@@ -358,9 +357,9 @@ cosmological a\(_{0}\),cos(z) from B(z).
 is \textbf{conditional on the MUSE-DARK III modeling chain}, and this
 caveat is load-bearing. Our follow-up E-1′ attempted the branch test
 directly on the released per-galaxy catalogue
-(\texttt{muse\_release\_galaxies.csv}, 85 numeric candidates) using the
+(\texttt{muse\_\allowbreak release\_\allowbreak galaxies.\allowbreak csv}, 85 numeric candidates) using the
 raw outer rotational acceleration a\_rot \(\sim\) V\(^{2}\)/r (script
-\texttt{mass\_controlled\_arot\_trend.py}); the result remains open.
+\texttt{mass\_\allowbreak controlled\_\allowbreak arot\_\allowbreak trend.\allowbreak py}); the result remains open.
 Three facts emerged:
 
 \begin{enumerate}
@@ -497,7 +496,7 @@ Verlinde's a\_M \(\approx\) cH/6 rises with z only because his s\_V
 tracks H(z) \citep{Verlinde:2016toy}. But SEDE's \(\Delta\) = 1
 postulate is precisely that the ledger density is \emph{constant}
 (s\(_{0}\)), with structure opening the gate f\_sat. So the elastic
-response inside SEDE gives (script \texttt{d3prime\_emergent\_mond.py}),
+response inside SEDE gives (script \texttt{d3prime\_\allowbreak emergent\_\allowbreak mond.\allowbreak py}),
 against MUSE 2.157 \(\pm\) 0.061:
 
 \begin{longtable}[]{@{}
@@ -567,7 +566,7 @@ above says ``inertia = reaction to the Deser--Levin \emph{thermal}
 tilt.'' A galaxy has essentially \textbf{no thermal bath}: the number of
 Deser--Levin bath modes populated at galactic accelerations is
 \textasciitilde3 × 10\(^{-22}\) (script
-\texttt{d3prime\_thermal\_consistency.py}) --- far below one, so we
+\texttt{d3prime\_\allowbreak thermal\_\allowbreak consistency.\allowbreak py}) --- far below one, so we
 derive that a galaxy cannot thermalize this scale in a Hubble time. The
 KMS-tilt inertia therefore \textbf{survives only as a VACUUM effect} ---
 the Bunch--Davies vacuum seen by an accelerated observer, not a
@@ -661,7 +660,7 @@ worldline kernel finite at all.
 \end{quote}
 
 gives the exact closed form (script
-\texttt{d4prime\_worldline\_kernel.py}):
+\texttt{d4prime\_\allowbreak worldline\_\allowbreak kernel.\allowbreak py}):
 
 \begin{quote}
 \textbf{\(\int\)d\(\Delta\tau\) cosh(a\(\Delta\tau\))
@@ -777,7 +776,7 @@ meet.
 \section{Predictions and falsifiers (P14--P18)}\label{sec-7}
 
 The galactic face's commitments are frozen in the pre-registered
-falsifier matrix (Zenodo \texttt{10.5281/zenodo.21415326}). We restate
+falsifier matrix (Zenodo \texttt{10.\allowbreak 5281/\allowbreak zenodo.\allowbreak 21415326}). We restate
 the four that matter.
 
 \textbf{P14 --- a\(_{0}\)(z) rises like H(z) (rate branch).} Frozen
@@ -927,33 +926,33 @@ is archived at Zenodo, DOI 10.5281/zenodo.21525537):
 \begin{itemize}
 \tightlist
 \item
-  \texttt{branch\_discrimination\_test.py} (E-1): the two-branch
+  \texttt{branch\_\allowbreak discrimination\_\allowbreak test.\allowbreak py} (E-1): the two-branch
   templates over z = 0.33 \(\to\) 1.44; density +16.7\(\sigma\), rate
   +4.4\(\sigma\); the MUSE-preferred power a\(_{0}\) \(\propto\)
-  H\^{}\{1.23\}. Data: \texttt{desi\_template\_quantiles.csv},
-  \texttt{muse\_release\_galaxies.csv}, MUSE-DARK III published
+  H\^{}\{1.23\}. Data: \texttt{desi\_\allowbreak template\_\allowbreak quantiles.\allowbreak csv},
+  \texttt{muse\_\allowbreak release\_\allowbreak galaxies.\allowbreak csv}, MUSE-DARK III published
   a\(_{0}\)(z) = (1.00 \(\pm\) 0.04) + (1.59 \(\pm\) 0.11)z.
 \item
-  \texttt{d3prime\_emergent\_mond.py} (D-3′): the exact gated-Verlinde
+  \texttt{d3prime\_\allowbreak emergent\_\allowbreak mond.\allowbreak py} (D-3′): the exact gated-Verlinde
   identity; the elastic/activated/density sub-branch exclusions
   (19.0\(\sigma\) / 27.3\(\sigma\) / 19.5\(\sigma\)); the KMS-tilt RAR
   pass at 0.057 dex.
 \item
-  \texttt{d3prime\_thermal\_consistency.py}: the \textasciitilde3 ×
+  \texttt{d3prime\_\allowbreak thermal\_\allowbreak consistency.\allowbreak py}: the \textasciitilde3 ×
   10\(^{-22}\) galactic bath-mode count that forces the vacuum framing.
 \item
-  \texttt{d4prime\_worldline\_kernel.py} (D-4′): the master integral
+  \texttt{d4prime\_\allowbreak worldline\_\allowbreak kernel.\allowbreak py} (D-4′): the master integral
   (10\(^{-16}\), Gradshteyn 3.512); the kernel
   (a/4\(\pi\))cot(\(\pi\)a/\(\kappa\)); the zero at a = H/\surd 3; the
   deep-a and large-a limits; the dispersive/dissipative split.
 \item
-  \texttt{mass\_controlled\_arot\_trend.py} (E-1′): the raw-catalogue
+  \texttt{mass\_\allowbreak controlled\_\allowbreak arot\_\allowbreak trend.\allowbreak py} (E-1′): the raw-catalogue
   radius degeneracy (corr(r\_max, z) = 0.87) that makes the released
   kinematics inconclusive.
 \end{itemize}
 
 The pre-registered falsifier matrix (P14--P18) is frozen at Zenodo
-\texttt{10.5281/zenodo.21415326}; nothing in it may be edited after
+\texttt{10.\allowbreak 5281/\allowbreak zenodo.\allowbreak 21415326}; nothing in it may be edited after
 freeze, and it predates the deciding data (JWST high-z kinematics,
 E-1″).
 
@@ -982,7 +981,7 @@ references}\label{companion-papers-and-references}
 \item
   \emph{APDM --- cross-check notes from the USC unification effort}.
 \item
-  Pre-registration freeze: Zenodo \texttt{10.5281/zenodo.21415326}.
+  Pre-registration freeze: Zenodo \texttt{10.\allowbreak 5281/\allowbreak zenodo.\allowbreak 21415326}.
 \item
   Milgrom (1983, 1999, 2009); Verlinde (2016); Deser \& Levin (1997);
   McGaugh, Lelli \& Schombert (2016); MUSE-DARK III (high-z rotation).
