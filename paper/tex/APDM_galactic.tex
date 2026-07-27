@@ -1,57 +1,65 @@
-% Pandoc template for The Open Journal of Astrophysics. Engine: pdflatex.
-% OJA is an arXiv-overlay journal (any arXiv-acceptable format is allowed) that emulates ApJ;
-% its own openjournal.cls (2015) is incompatible with current revtex4-2, so we use the
-% maintained AAS journal class aastex631, which is the format OJA is modelled on.
-\documentclass{aastex631}   % onecolumn manuscript mode — pandoc's longtable needs single column
+% Pandoc template for MNRAS (mnras.cls, author-year natbib).
+% Engine: xelatex (STIX Two Text) so the prose Unicode + math render.
+\documentclass[fleqn,usenatbib,onecolumn]{mnras}
 \usepackage{iftex}
 \ifPDFTeX
-  \usepackage[T1]{fontenc}\usepackage[utf8]{inputenc}
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
 \else
-  \usepackage{fontspec}\setmainfont{STIX Two Text}
+  \usepackage{fontspec}
+  \setmainfont{STIX Two Text}
 \fi
-\usepackage{amssymb}
-% make bare math commands the preprocessors may leave in text mode robust (√ -> \surd etc.)
-\let\pandocsurd\surd \renewcommand{\surd}{\ensuremath{\pandocsurd}}
 
-% --- prose Unicode -> math (pdflatex-safe via newunicodechar) ---
+\usepackage{amsmath,amssymb,graphicx}
+\usepackage{orcidlink}
+
+% make bare math commands the preprocessors may leave in text mode robust (surd etc.)
+\makeatletter
+\let\pandocsurd\surd \renewcommand{\surd}{\ensuremath{\pandocsurd}}
+\makeatother
+
+% --- prose Unicode operators -> math (works under xe/pdf latex) ---
 \usepackage{newunicodechar}
-\newunicodechar{₀}{\ensuremath{{}_0}}\newunicodechar{₁}{\ensuremath{{}_1}}
-\newunicodechar{₂}{\ensuremath{{}_2}}\newunicodechar{₃}{\ensuremath{{}_3}}
-\newunicodechar{₄}{\ensuremath{{}_4}}\newunicodechar{₅}{\ensuremath{{}_5}}
-\newunicodechar{₆}{\ensuremath{{}_6}}\newunicodechar{₇}{\ensuremath{{}_7}}
-\newunicodechar{₈}{\ensuremath{{}_8}}\newunicodechar{₉}{\ensuremath{{}_9}}
-\newunicodechar{₊}{\ensuremath{{}_+}}\newunicodechar{₋}{\ensuremath{{}_-}}
-\newunicodechar{⁰}{\ensuremath{{}^0}}\newunicodechar{¹}{\ensuremath{{}^1}}
-\newunicodechar{²}{\ensuremath{{}^2}}\newunicodechar{³}{\ensuremath{{}^3}}
-\newunicodechar{⁴}{\ensuremath{{}^4}}\newunicodechar{⁵}{\ensuremath{{}^5}}
-\newunicodechar{⁶}{\ensuremath{{}^6}}\newunicodechar{⁷}{\ensuremath{{}^7}}
-\newunicodechar{⁸}{\ensuremath{{}^8}}\newunicodechar{⁹}{\ensuremath{{}^9}}
-\newunicodechar{⁺}{\ensuremath{{}^+}}\newunicodechar{⁻}{\ensuremath{{}^-}}
-\newunicodechar{→}{\ensuremath{\rightarrow}}\newunicodechar{∂}{\ensuremath{\partial}}
-\newunicodechar{∈}{\ensuremath{\in}}\newunicodechar{∎}{\ensuremath{\blacksquare}}
-\newunicodechar{□}{\ensuremath{\Box}}\newunicodechar{∝}{\ensuremath{\propto}}
-\newunicodechar{∞}{\ensuremath{\infty}}\newunicodechar{∫}{\ensuremath{\int}}
-\newunicodechar{≈}{\ensuremath{\approx}}\newunicodechar{≠}{\ensuremath{\neq}}
-\newunicodechar{≡}{\ensuremath{\equiv}}\newunicodechar{≤}{\ensuremath{\leq}}
-\newunicodechar{≥}{\ensuremath{\geq}}\newunicodechar{≪}{\ensuremath{\ll}}
-\newunicodechar{≫}{\ensuremath{\gg}}\newunicodechar{≲}{\ensuremath{\lesssim}}
-\newunicodechar{≳}{\ensuremath{\gtrsim}}\newunicodechar{⊙}{\ensuremath{\odot}}
-\newunicodechar{⊗}{\ensuremath{\otimes}}\newunicodechar{√}{\ensuremath{\surd}}
-\newunicodechar{∼}{\ensuremath{\sim}}\newunicodechar{∇}{\ensuremath{\nabla}}
-\newunicodechar{↔}{\ensuremath{\leftrightarrow}}\newunicodechar{⟨}{\ensuremath{\langle}}
-\newunicodechar{⟩}{\ensuremath{\rangle}}\newunicodechar{−}{\ensuremath{-}}
-\newunicodechar{ℓ}{\ensuremath{\ell}}\newunicodechar{ħ}{\ensuremath{\hbar}}
-\newunicodechar{′}{\ensuremath{{}^\prime}}\newunicodechar{×}{\ensuremath{\times}}
-\newunicodechar{·}{\ensuremath{\cdot}}\newunicodechar{±}{\ensuremath{\pm}}
-\newunicodechar{⇒}{\ensuremath{\Rightarrow}}\newunicodechar{⇔}{\ensuremath{\Leftrightarrow}}
-\newunicodechar{◆}{\ensuremath{\blacklozenge}}\newunicodechar{✓}{\ensuremath{\checkmark}}
-\newunicodechar{✗}{\ensuremath{\times}}\newunicodechar{𝓗}{\ensuremath{\mathcal{H}}}
-\newunicodechar{𝒟}{\ensuremath{\mathcal{D}}}\newunicodechar{𝒮}{\ensuremath{\mathcal{S}}}
-\newunicodechar{𝓜}{\ensuremath{\mathcal{M}}}
+\newunicodechar{→}{\ensuremath{\rightarrow}}
+\newunicodechar{∂}{\ensuremath{\partial}}
+\newunicodechar{∈}{\ensuremath{\in}}
+\newunicodechar{∎}{\ensuremath{\blacksquare}}
+\newunicodechar{□}{\ensuremath{\Box}}
+\newunicodechar{∝}{\ensuremath{\propto}}
+\newunicodechar{∞}{\ensuremath{\infty}}
+\newunicodechar{∫}{\ensuremath{\int}}
+\newunicodechar{≈}{\ensuremath{\approx}}
+\newunicodechar{≠}{\ensuremath{\neq}}
+\newunicodechar{≡}{\ensuremath{\equiv}}
+\newunicodechar{≤}{\ensuremath{\leq}}
+\newunicodechar{≥}{\ensuremath{\geq}}
+\newunicodechar{≪}{\ensuremath{\ll}}
+\newunicodechar{≫}{\ensuremath{\gg}}
+\newunicodechar{≲}{\ensuremath{\lesssim}}
+\newunicodechar{⊙}{\ensuremath{\odot}}
+\newunicodechar{⊗}{\ensuremath{\otimes}}
+\newunicodechar{⟹}{\ensuremath{\Longrightarrow}}
+\newunicodechar{⟺}{\ensuremath{\Longleftrightarrow}}
+\newunicodechar{⇒}{\ensuremath{\Rightarrow}}
+\newunicodechar{⇔}{\ensuremath{\Leftrightarrow}}
+\newunicodechar{𝓗}{\ensuremath{\mathcal{H}}}
+\newunicodechar{√}{\ensuremath{\surd}}
+\newunicodechar{∼}{\ensuremath{\sim}}
+\newunicodechar{∇}{\ensuremath{\nabla}}
+\newunicodechar{↔}{\ensuremath{\leftrightarrow}}
+\newunicodechar{⟨}{\ensuremath{\langle}}
+\newunicodechar{⟩}{\ensuremath{\rangle}}
+\newunicodechar{−}{\ensuremath{-}}
+\newunicodechar{ℓ}{\ensuremath{\ell}}
+\newunicodechar{ħ}{\ensuremath{\hbar}}
+\newunicodechar{′}{\ensuremath{{}^\prime}}
+\newunicodechar{Ḣ}{\ensuremath{\dot H}}
+\newunicodechar{Ṡ}{\ensuremath{\dot S}}
+\newunicodechar{₊}{\ensuremath{{}_{+}}}
 
 % --- pandoc body requirements ---
 \usepackage{longtable,booktabs,array}
-\usepackage{calc}   % pandoc relative-width table columns: p{(\linewidth - ...) * \real{}}
+\usepackage{calc}
 \usepackage{float}
 \makeatletter
 \newsavebox\pandoc@box
@@ -66,17 +74,21 @@
 }
 \makeatother
 \providecommand{\tightlist}{\setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
-\graphicspath{{../}{../figures/}{../../results/}}
+\graphicspath{{../}{../figures/}}
 
-\shorttitle{The Galactic Face of the Entropy Clock}
-\shortauthors{Pandev}
+\setlength{\emergencystretch}{3em}
+
+\title[MOND as a rate-branch scale $a_0 \propto H(z)$]{The Galactic Face
+of the Entropy Clock: MOND as a Rate-Branch Acceleration Scale a\(_{0}\)
+\(\propto\) H(z)}
+
+\author[S. Pandev]{Stilian Pandev$^{1}$\thanks{E-mail: stilianpandev@gmail.com}
+\\
+$^{1}$Independent researcher
+}
 
 \begin{document}
-\title{The Galactic Face of the Entropy Clock: MOND as a Rate-Branch
-Acceleration Scale a\(_{0}\) \(\propto\) H(z)}
-\author{Stilian Pandev}
-\affiliation{Independent researcher}
-\email{stilianpandev@gmail.com}
+\maketitle
 
 \begin{abstract}
 The MOND acceleration scale a\(_{0}\) \(\approx\) 1.2 × 10\(^{-10}\) m
@@ -124,8 +136,11 @@ high-z rotators, though existing declining high-z rotation curves
 already disfavour a strongly rising a\(_{0}\) \citep{Milgrom:2017hpv}:
 the central tension this branch must survive.
 \end{abstract}
-\keywords{modified Newtonian dynamics; galaxy rotation curves; dark
-energy; emergent gravity; radial acceleration relation}
+
+\begin{keywords}
+modified Newtonian dynamics; galaxy rotation curves; dark energy;
+emergent gravity; radial acceleration relation
+\end{keywords}
 
 \section{Introduction}\label{sec-1}
 
@@ -973,6 +988,6 @@ references}\label{companion-papers-and-references}
   McGaugh, Lelli \& Schombert (2016); MUSE-DARK III (high-z rotation).
 \end{itemize}
 
-\bibliographystyle{aasjournal}
+\bibliographystyle{mnras}
 \bibliography{refs}
 \end{document}
