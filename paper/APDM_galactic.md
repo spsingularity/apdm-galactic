@@ -129,6 +129,8 @@ ratio.
 
 ## 3. Branch discrimination against high-z rotation (E-1)
 
+Figure 1 shows the discrimination; the numbers behind it are given below.
+
 ![](figures/fig1_branch_discrimination.png)
 
 **Figure 1.** Branch discrimination against high-$z$ rotation. The rate branch $a_0\propto H(z)$ rises with redshift (blue), tracking the MUSE-DARK III trend (ratio $2.16\pm0.06$ over $z=0.33\to1.44$); the density branch $a_0\propto\sqrt{\rho_{\rm DE}}$ falls (red), the wrong sign — excluded at $+16.7\sigma$. The rate branch is $+4.4\sigma$ shallow. The significance is conditional on the MUSE-DARK III modelling chain (§3, §8).
@@ -215,6 +217,8 @@ one branch that, at the start of this analysis, was unbuilt.
 ---
 
 ## 5. The emergent-MOND home (D-3′)
+
+Figure 2 shows the resulting zero-freedom radial acceleration relation.
 
 ![](figures/fig2_rar.png)
 
