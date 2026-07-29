@@ -28,6 +28,16 @@ def convert(text):
         s = parts[i]
         # combining tilde over a base letter (e.g. m̃) -> $\tilde{m}$
         s = re.sub(r'(\w)̃', lambda m: '$\\tilde{' + m.group(1) + '}$', s)
+        # combining dot above a base letter (e.g. Θ̇, Σ̇) -> $\dot{X}$.
+        # Needed because pdflatex (used by revtex4-2) cannot render the bare
+        # combining mark; xelatex+STIX could, which is why this went unnoticed
+        # while the paper targeted MNRAS.
+        # resolve a Greek base to its LaTeX name here, so the later Greek pass does
+        # not rewrite it inside the \dot{} and produce nested math.
+        s = re.sub(r'([A-Za-zΑ-Ωα-ω])\u0307',
+                   lambda m: '$\\dot{' + GREEK.get(m.group(1), m.group(1)).strip() + '}$', s)
+        # double prime used as a designator suffix (e.g. E-1″) -> $''$
+        s = s.replace('\u2033', "$''$")
         # runs of sub/superscript digits -> single $_{...}$ / $^{...}$
         s = re.sub('([' + ''.join(SUP) + ']+)', lambda m: '$^{' + ''.join(SUP[c] for c in m.group(1)) + '}$', s)
         s = re.sub('([' + ''.join(SUB) + ']+)', lambda m: '$_{' + ''.join(SUB[c] for c in m.group(1)) + '}$', s)

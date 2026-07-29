@@ -1,6 +1,8 @@
-% Pandoc template for MNRAS (mnras.cls, author-year natbib).
-% Engine: xelatex (STIX Two Text) so the prose Unicode + math render.
-\documentclass[fleqn,usenatbib,onecolumn]{mnras}
+% Pandoc template for Physical Review D (REVTeX 4.2, preprint/one-column).
+% Retargeted from MNRAS: MNRAS became fully open access in 2024 with a mandatory
+% APC (GBP 2,356), and no APC waiver is being sought. PRD is free on the
+% subscription route. Engine: pdflatex (REVTeX is pdflatex-native).
+\documentclass[aps,prd,preprint,nofootinbib,superscriptaddress]{revtex4-2}
 \usepackage{iftex}
 \ifPDFTeX
   \usepackage[T1]{fontenc}
@@ -11,12 +13,18 @@
 \fi
 
 \usepackage{amsmath,amssymb,graphicx}
+\usepackage[hidelinks]{hyperref}
 \usepackage{orcidlink}
 
-% make bare math commands the preprocessors may leave in text mode robust (surd etc.)
 \makeatletter
 \let\pandocsurd\surd \renewcommand{\surd}{\ensuremath{\pandocsurd}}
 \makeatother
+\hyphenation{zenodo Zenodo}
+% pdflatex needs this explicitly; xelatex+STIX had it for free
+\usepackage{newunicodechar}
+\newunicodechar{ℏ}{\ensuremath{\hbar}}
+\providecommand{\eprint}[1]{#1}
+\AtBeginDocument{\renewcommand{\eprint}[1]{\href{https://arxiv.org/abs/#1}{#1}}}
 
 % --- prose Unicode operators -> math (works under xe/pdf latex) ---
 \usepackage{newunicodechar}
@@ -76,22 +84,17 @@
 \providecommand{\tightlist}{\setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
 \graphicspath{{../}{../figures/}}
 
-% DOIs must never hyphenate
-\hyphenation{zenodo Zenodo}
-
-\setlength{\emergencystretch}{3em}
-
-\title[MOND as a rate-branch scale $a_0 \propto H(z)$]{The Galactic Face
-of the Entropy Clock: MOND as a Rate-Branch Acceleration Scale a\(_{0}\)
-\(\propto\) H(z)}
-
-\author[S. Pandev]{Stilian Pandev$^{1}$\thanks{E-mail: stilianpandev@gmail.com}
-\\
-$^{1}$Independent researcher
-}
+\setlength{\emergencystretch}{6em}
+\sloppy
 
 \begin{document}
-\maketitle
+
+\title{The Galactic Face of the Entropy Clock: MOND as a Rate-Branch
+Acceleration Scale a\(_{0}\) \(\propto\) H(z)}
+
+\author{Stilian Pandev\,\orcidlink{0009-0005-8153-071X}}
+\email{stilianpandev@gmail.com}
+\affiliation{Independent researcher}
 
 \begin{abstract}
 The MOND acceleration scale a\(_{0}\) \(\approx\) 1.2 × 10\(^{-10}\) m
@@ -104,7 +107,7 @@ coincidence are possible: a \textbf{density branch} a\(_{0}\)
 by the APDM superfluid, and a \textbf{rate branch} a\(_{0}\) \(\propto\)
 H(z) (rising), realized by horizon-entropic / emergent gravity. This
 rate-vs-density discrimination is not new --- it was posed by
-\citet{Limbach:2008aa} (2008), who reached the marginally
+\citep{Limbach:2008aa} (2008), who reached the marginally
 \emph{opposite} (density-favoured) verdict. Against the MUSE-DARK III
 measurement a\(_{0}\)(z) = (1.00 \(\pm\) 0.04) + (1.59 \(\pm\) 0.11)z
 (ratio 2.16 \(\pm\) 0.06 over z = 0.33 \(\to\) 1.44), the density branch
@@ -140,9 +143,11 @@ already disfavour a strongly rising a\(_{0}\) \citep{Milgrom:2017hpv}:
 the central tension this branch must survive.
 \end{abstract}
 
-\begin{keywords}
-modified Newtonian dynamics -- galaxy rotation curves -- dark energy -- emergent gravity -- radial acceleration relation
-\end{keywords}
+\maketitle
+
+\noindent\textbf{Keywords:} modified Newtonian dynamics; galaxy rotation
+curves; dark energy; emergent gravity; radial acceleration relation
+\vspace{6pt}
 
 \section{Introduction}\label{sec-1}
 
@@ -202,7 +207,7 @@ scaling. Two completions are natural:
 \end{itemize}
 
 This rate-versus-density branch discrimination is not new: it was posed
-by \citet{Limbach:2008aa}, who defined the same two evolutionary
+by \citep{Limbach:2008aa}, who defined the same two evolutionary
 channels (a\(_{0}\) \(\propto\) cH versus a\(_{0}\) \(\propto\)
 \(\sqrt{G\rho_\Lambda}\)), evolved them through the Friedmann equation,
 and proposed to discriminate them with the high-z Tully--Fisher relation
@@ -248,7 +253,7 @@ theory has already committed to, in advance, without adjustable freedom.
 
 \section{Setup: the two branches and the clock}\label{sec-2}
 
-The USC entropy clock is \(\mathcal{D}\)\_E = \(\Theta\)̇\_E/H =
+The USC entropy clock is \(\mathcal{D}\)\_E = \(\dot{\Theta}\)\_E/H =
 (3/2)(1-w), the horizon entropy-production rate written as a function of
 the dark-energy equation of state w, as established in the USC framework
 paper (Paper V). APDM's density-branch a\(_{0}\)-clock obeys d ln
@@ -399,8 +404,8 @@ discrimination's evidential weight rests on an unreproducible pipeline.
 We therefore register E-1 as: \emph{density branch excluded
 +16.7\(\sigma\), rate branch favoured in sign, \textbf{conditional on
 the MUSE-DARK III modeling chain}}, and elevate reproducibility from a
-footnote to a live scientific issue (the decisive follow-up, E-1″, is in
-§\ref{sec-7}). This is the one place where USC's own data-hygiene
+footnote to a live scientific issue (the decisive follow-up, E-1\(''\),
+is in §\ref{sec-7}). This is the one place where USC's own data-hygiene
 standard (pre-registration, released pipelines) is not met by the
 \emph{external} dataset it leans on.
 
@@ -674,7 +679,8 @@ gives the exact closed form (script
 \textbf{\(\int\)d\(\Delta\tau\) cosh(a\(\Delta\tau\))
 G\(^{+}\)(\(\Delta\tau\)) =
 (a/4\(\pi\))\(\cdot\)cot(\(\pi\)a/\(\kappa\))}, \(\kappa\) =
-\surd (a\(^{2}\)+H\(^{2}\)), and the second-order rate \(\Sigma\)̇(a) =
+\surd (a\(^{2}\)+H\(^{2}\)), and the second-order rate
+\(\dot{\Sigma}\)(a) =
 (\(\tilde{m}^{2}\)a\(^{3}\)/8\(\pi\))\(\cdot\)cot(\(\pi\)a/\(\kappa\)).
 \end{quote}
 
@@ -705,14 +711,14 @@ Findings:
   cannot literally \emph{be} the inertia, so the extraction must involve
   more than this single kernel.
 \item
-  \textbf{(iv) Deep-a limit:} \(\Sigma\)̇ \(\to\)
+  \textbf{(iv) Deep-a limit:} \(\dot{\Sigma}\) \(\to\)
   \(\tilde{m}^{2}\)a\(^{2}\)H/8\(\pi^{2}\) --- quadratic in a
   (deep-MOND-like) but \textbf{linear in H}, whereas a deep-MOND force F
   = ma\(^{2}\)/a\(_{0}\) with a\(_{0}\) \(\propto\) H requires 1/H.
   Converting the rate to a force is where that inversion must occur;
   that step is not fixed by the desk calculation.
 \item
-  \textbf{(v) Large-a pathology:} \(\Sigma\)̇ \(\to\)
+  \textbf{(v) Large-a pathology:} \(\dot{\Sigma}\) \(\to\)
   -\(\tilde{m}^{2}\)a\(^{5}\)/4\(\pi^{2}\)H\(^{2}\), divergent as H
   \(\to\) 0 --- the eternal-Rindler idealization breaks. Physical
   (finite) worldlines are required for the Newtonian-side matching.
@@ -793,7 +799,7 @@ activated 0.49, density 0.89--0.91. Current MUSE gives 2.16 \(\pm\) 0.06
 --- density excluded +16.7\(\sigma\), rate favoured (+4.4\(\sigma\)
 shallow, B(z)-absorbable) --- \textbf{conditional on the MUSE pipeline}
 (raw catalogue radius-degenerate, corr(r\_max, z) = 0.87; registered).
-\emph{Deciding data:} the \textbf{E-1″ protocol} --- an independent
+\emph{Deciding data:} the \textbf{E-1\(''\) protocol} --- an independent
 high-z RAR with per-galaxy baryonic decompositions, matched
 M\emph{/morphology bins, matched radius sampling in R\_eff units, target
 \(\sigma\)(a\(_{0}\)-ratio) \(\leq\) 0.15. }Rule:* collapse under
@@ -827,21 +833,21 @@ structural signature that separates the rate branch from every
 density-branch variant at high z.
 
 We must own the strongest existing tension with this prediction. Using
-the declining high-z rotation curves of \citet{Genzel:2017jgd},
-\citet{Milgrom:2017hpv} constrained the evolution of a\(_{0}\) and found
+the declining high-z rotation curves of \citep{Genzel:2017jgd},
+\citep{Milgrom:2017hpv} constrained the evolution of a\(_{0}\) and found
 the data all but \emph{exclude} a strongly rising a\(_{0}\) (in
 particular a\(_{0}\) \(\propto\) (1+z)\^{}\{3/2\}), favouring a roughly
 constant a\(_{0}\) --- a direct pull against the rising rate branch
 predicted here. We do not hand this away: current high-z data disfavour
 a strongly rising a\(_{0}\), and this is the key observational tension
 the rate branch must survive. We note only that the diagnostic is not
-clean in either direction: \citet{Mayer:2022qhk} find, in
+clean in either direction: \citep{Mayer:2022qhk} find, in
 \(\Lambda\)CDM+baryon (Magneticum) simulations, that the effective
 a\(_{0}\) itself rises by a factor \textasciitilde3 from z = 0 to z =
 2.3, so a measured rise in a\(_{0}\)(z) is not by itself a rate-branch
 discriminator and a measured flatness is not by itself confirmation of
 \(\Lambda\)CDM. The tension is real; resolving it requires the
-matched-selection protocol (E-1″), not the existing samples.
+matched-selection protocol (E-1\(''\)), not the existing samples.
 
 \textbf{P16 --- the interpolation function, zero shape freedom.} g\_obs
 = \surd (g\_bar\(^{2}\) + a\(_{0}\) g\_bar), within 0.057 dex of the
@@ -897,7 +903,7 @@ claim the 4\(\pi\) is derived as the coefficient; it appears in the
 kernel normalization. The remaining calculation is the SK stochastic
 (Langevin-worldline) response plus the true vector structure of
 X\_\(\nu\) plus finite-worldline regularization --- paper-scale, sharply
-posed, not done. (ii) \textbf{The E-1″ data dependence.} The entire
+posed, not done. (ii) \textbf{The E-1\(''\) data dependence.} The entire
 empirical branch discrimination rests on the MUSE-DARK III modeling
 chain, which is not in the public release; the raw kinematics are
 radius-degenerate and cannot adjudicate. Until an independent high-z RAR
@@ -962,7 +968,7 @@ is archived at Zenodo, DOI 10.5281/zenodo.21525537):
 The pre-registered falsifier matrix (P14--P18) is frozen at Zenodo
 \texttt{10.\allowbreak 5281/\allowbreak zenodo.\allowbreak 21415326}; nothing in it may be edited after
 freeze, and it predates the deciding data (JWST high-z kinematics,
-E-1″).
+E-1\(''\)).
 
 \section*{Acknowledgements}\label{acknowledgements}
 \addcontentsline{toc}{section}{Acknowledgements}
@@ -995,6 +1001,6 @@ references}\label{companion-papers-and-references}
   McGaugh, Lelli \& Schombert (2016); MUSE-DARK III (high-z rotation).
 \end{itemize}
 
-\bibliographystyle{mnras}
+\bibliographystyle{apsrev4-2}
 \bibliography{refs}
 \end{document}
