@@ -369,10 +369,10 @@ cosmological a\(_{0}\),cos(z) from B(z).
 is \textbf{conditional on the MUSE-DARK III modeling chain}, and this
 caveat is load-bearing. Our follow-up E-1′ attempted the branch test
 directly on the released per-galaxy catalogue
-(\texttt{muse\_\allowbreak release\_\allowbreak galaxies.\allowbreak csv}, 85 numeric candidates) using the
-raw outer rotational acceleration a\_rot \(\sim\) V\(^{2}\)/r (script
-\texttt{mass\_\allowbreak controlled\_\allowbreak arot\_\allowbreak trend.\allowbreak py}); the result remains open.
-Three facts emerged:
+(\texttt{src/\allowbreak data/\allowbreak muse\_\allowbreak release\_\allowbreak galaxies.\allowbreak csv}, 85 numeric candidates)
+using the raw outer rotational acceleration a\_rot \(\sim\) V\(^{2}\)/r
+(script \texttt{src/\allowbreak mass\_\allowbreak controlled\_\allowbreak arot\_\allowbreak trend.\allowbreak py}); the result
+remains open. Three facts emerged:
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
@@ -510,8 +510,9 @@ Verlinde's a\_M \(\approx\) cH/6 rises with z only because his s\_V
 tracks H(z) \citep{Verlinde:2016toy}. But SEDE's \(\Delta\) = 1
 postulate is precisely that the ledger density is \emph{constant}
 (s\(_{0}\)), with structure opening the gate f\_sat. So the elastic
-response inside SEDE gives (script \texttt{d3prime\_\allowbreak emergent\_\allowbreak mond.\allowbreak py}),
-against MUSE 2.157 \(\pm\) 0.061:
+response inside SEDE gives (script
+\texttt{src/\allowbreak d3prime\_\allowbreak emergent\_\allowbreak mond.\allowbreak py}), against MUSE 2.157 \(\pm\)
+0.061:
 
 \begin{longtable}[]{@{}
   >{\raggedright\arraybackslash}p{(\linewidth - 4\tabcolsep) * \real{0.3333}}
@@ -580,7 +581,7 @@ above says ``inertia = reaction to the Deser--Levin \emph{thermal}
 tilt.'' A galaxy has essentially \textbf{no thermal bath}: the number of
 Deser--Levin bath modes populated at galactic accelerations is
 \textasciitilde3 × 10\(^{-22}\) (script
-\texttt{d3prime\_\allowbreak thermal\_\allowbreak consistency.\allowbreak py}) --- far below one, so we
+\texttt{src/\allowbreak d3prime\_\allowbreak thermal\_\allowbreak consistency.\allowbreak py}) --- far below one, so we
 derive that a galaxy cannot thermalize this scale in a Hubble time. The
 KMS-tilt inertia therefore \textbf{survives only as a VACUUM effect} ---
 the Bunch--Davies vacuum seen by an accelerated observer, not a
@@ -674,7 +675,7 @@ worldline kernel finite at all.
 \end{quote}
 
 gives the exact closed form (script
-\texttt{d4prime\_\allowbreak worldline\_\allowbreak kernel.\allowbreak py}):
+\texttt{src/\allowbreak d4prime\_\allowbreak worldline\_\allowbreak kernel.\allowbreak py}):
 
 \begin{quote}
 \textbf{\(\int\)d\(\Delta\tau\) cosh(a\(\Delta\tau\))
@@ -945,25 +946,25 @@ is archived at Zenodo, DOI 10.5281/zenodo.21525537):
   templates over z = 0.33 \(\to\) 1.44; density +16.7\(\sigma\), rate
   +4.4\(\sigma\); the MUSE-preferred power a\(_{0}\) \(\propto\)
   H\^{}\{1.23\}. Data: \texttt{src/\allowbreak data/\allowbreak desi\_\allowbreak template\_\allowbreak quantiles.\allowbreak csv},
-  \texttt{muse\_\allowbreak release\_\allowbreak galaxies.\allowbreak csv}, MUSE-DARK III published
+  \texttt{src/\allowbreak data/\allowbreak muse\_\allowbreak release\_\allowbreak galaxies.\allowbreak csv}, MUSE-DARK III published
   a\(_{0}\)(z) = (1.00 \(\pm\) 0.04) + (1.59 \(\pm\) 0.11)z.
 \item
-  \texttt{d3prime\_\allowbreak emergent\_\allowbreak mond.\allowbreak py} (D-3′): the exact gated-Verlinde
-  identity; the elastic/activated/density sub-branch exclusions
-  (19.0\(\sigma\) / 27.3\(\sigma\) / 19.5\(\sigma\)); the KMS-tilt RAR
-  pass at 0.057 dex.
+  \texttt{src/\allowbreak d3prime\_\allowbreak emergent\_\allowbreak mond.\allowbreak py} (D-3′): the exact
+  gated-Verlinde identity; the elastic/activated/density sub-branch
+  exclusions (19.0\(\sigma\) / 27.3\(\sigma\) / 19.5\(\sigma\)); the
+  KMS-tilt RAR pass at 0.057 dex.
 \item
-  \texttt{d3prime\_\allowbreak thermal\_\allowbreak consistency.\allowbreak py}: the \textasciitilde3 ×
+  \texttt{src/\allowbreak d3prime\_\allowbreak thermal\_\allowbreak consistency.\allowbreak py}: the \textasciitilde3 ×
   10\(^{-22}\) galactic bath-mode count that forces the vacuum framing.
 \item
-  \texttt{d4prime\_\allowbreak worldline\_\allowbreak kernel.\allowbreak py} (D-4′): the master integral
+  \texttt{src/\allowbreak d4prime\_\allowbreak worldline\_\allowbreak kernel.\allowbreak py} (D-4′): the master integral
   (10\(^{-16}\), Gradshteyn 3.512); the kernel
   (a/4\(\pi\))cot(\(\pi\)a/\(\kappa\)); the zero at a = H/\surd 3; the
   deep-a and large-a limits; the dispersive/dissipative split.
 \item
-  \texttt{mass\_\allowbreak controlled\_\allowbreak arot\_\allowbreak trend.\allowbreak py} (E-1′): the raw-catalogue
-  radius degeneracy (corr(r\_max, z) = 0.87) that makes the released
-  kinematics inconclusive.
+  \texttt{src/\allowbreak mass\_\allowbreak controlled\_\allowbreak arot\_\allowbreak trend.\allowbreak py} (E-1′): the
+  raw-catalogue radius degeneracy (corr(r\_max, z) = 0.87) that makes
+  the released kinematics inconclusive.
 \end{itemize}
 
 The pre-registered falsifier matrix (P14--P18) is frozen at Zenodo

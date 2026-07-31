@@ -162,8 +162,8 @@ a₀,cos(z) from B(z).
 
 **The conditionality — stated prominently.** The +16.7σ is **conditional on the MUSE-DARK III modeling
 chain**, and this caveat is load-bearing. Our follow-up E-1′ attempted the branch test directly on the
-released per-galaxy catalogue (`muse_release_galaxies.csv`, 85 numeric candidates) using the raw outer
-rotational acceleration a_rot ∼ V²/r (script `mass_controlled_arot_trend.py`); the result remains open. Three facts emerged:
+released per-galaxy catalogue (`src/data/muse_release_galaxies.csv`, 85 numeric candidates) using the raw outer
+rotational acceleration a_rot ∼ V²/r (script `src/mass_controlled_arot_trend.py`); the result remains open. Three facts emerged:
 
 1. The stellar-mass confound is mild (corr(log M*, z) = +0.04); mass-controlling barely moves the slope.
 2. **The raw trend *falls*:** β = d log₁₀ a_rot/dz = −0.38 ± 0.15 — below even the published MUSE fit and
@@ -238,7 +238,7 @@ and it cuts against the naïve expectation.
 **(2) The gating *kills* Verlinde-elastic MOND inside USC.** Verlinde's a_M ≈ cH/6 rises with z only
 because his s_V tracks H(z) [@Verlinde:2016toy]. But SEDE's Δ = 1 postulate is precisely that the ledger density is *constant*
 (s₀), with structure opening the gate f_sat. So the elastic response inside SEDE gives (script
-`d3prime_emergent_mond.py`), against MUSE 2.157 ± 0.061:
+`src/d3prime_emergent_mond.py`), against MUSE 2.157 ± 0.061:
 
 | emergent sub-branch | a₀(1.44)/a₀(0.33) | tension |
 |---|---|---|
@@ -269,7 +269,7 @@ all set by the same T_AH = H/2π.
 
 **A load-bearing correction (the vacuum caveat).** The heuristic above says "inertia = reaction to the
 Deser–Levin *thermal* tilt." A galaxy has essentially **no thermal bath**: the number of Deser–Levin bath
-modes populated at galactic accelerations is ~3 × 10⁻²² (script `d3prime_thermal_consistency.py`) — far
+modes populated at galactic accelerations is ~3 × 10⁻²² (script `src/d3prime_thermal_consistency.py`) — far
 below one, so we derive that a galaxy cannot thermalize this scale in a Hubble time. The KMS-tilt inertia
 therefore **survives only as a VACUUM effect** — the Bunch–Davies vacuum seen by an accelerated observer,
 not a populated thermal ensemble. This is not cosmetic: it forces the derivation of §6 to be a *vacuum*
@@ -321,7 +321,7 @@ proven analytically via Gradshteyn 3.512):
 > ∫dx cosh(αx)/sinh²(β(x−iε)) = −(πα/β²)·cot(πα/2β), convergent iff a < κ — **always true, marginal as
 > H → 0**: the cosmological tilt is what makes the worldline kernel finite at all.
 
-gives the exact closed form (script `d4prime_worldline_kernel.py`):
+gives the exact closed form (script `src/d4prime_worldline_kernel.py`):
 
 > **∫dΔτ cosh(aΔτ) G⁺(Δτ) = (a/4π)·cot(πa/κ)**, κ = \surd (a²+H²), and the second-order rate
 > Σ̇(a) = (m̃²a³/8π)·cot(πa/κ).
@@ -481,13 +481,13 @@ Every quantitative claim reproduces from a released script in <https://github.co
 
 - `src/branch_discrimination_test.py` (E-1): the two-branch templates over z = 0.33 → 1.44; density +16.7σ,
   rate +4.4σ; the MUSE-preferred power a₀ ∝ H^{1.23}. Data: `src/data/desi_template_quantiles.csv`,
-  `muse_release_galaxies.csv`, MUSE-DARK III published a₀(z) = (1.00 ± 0.04) + (1.59 ± 0.11)z.
-- `d3prime_emergent_mond.py` (D-3′): the exact gated-Verlinde identity; the elastic/activated/density
+  `src/data/muse_release_galaxies.csv`, MUSE-DARK III published a₀(z) = (1.00 ± 0.04) + (1.59 ± 0.11)z.
+- `src/d3prime_emergent_mond.py` (D-3′): the exact gated-Verlinde identity; the elastic/activated/density
   sub-branch exclusions (19.0σ / 27.3σ / 19.5σ); the KMS-tilt RAR pass at 0.057 dex.
-- `d3prime_thermal_consistency.py`: the ~3 × 10⁻²² galactic bath-mode count that forces the vacuum framing.
-- `d4prime_worldline_kernel.py` (D-4′): the master integral (10⁻¹⁶, Gradshteyn 3.512); the kernel
+- `src/d3prime_thermal_consistency.py`: the ~3 × 10⁻²² galactic bath-mode count that forces the vacuum framing.
+- `src/d4prime_worldline_kernel.py` (D-4′): the master integral (10⁻¹⁶, Gradshteyn 3.512); the kernel
   (a/4π)cot(πa/κ); the zero at a = H/\surd 3; the deep-a and large-a limits; the dispersive/dissipative split.
-- `mass_controlled_arot_trend.py` (E-1′): the raw-catalogue radius degeneracy (corr(r_max, z) = 0.87)
+- `src/mass_controlled_arot_trend.py` (E-1′): the raw-catalogue radius degeneracy (corr(r_max, z) = 0.87)
   that makes the released kinematics inconclusive.
 
 The pre-registered falsifier matrix (P14–P18) is frozen at Zenodo `10.5281/zenodo.21415326`; nothing in it
