@@ -274,8 +274,9 @@ dark--visible energy exchange.
 The observable that separates the branches is the ratio
 a\(_{0}\)(z\_hi)/a\(_{0}\)(z\_lo). We fix the DESI-template expansion
 history and evaluate both templates over the MUSE-DARK III interval z:
-0.33 \(\to\) 1.44 (script \texttt{branch\_\allowbreak discrimination\_\allowbreak test.\allowbreak py},
-template quantiles from \texttt{desi\_\allowbreak template\_\allowbreak quantiles.\allowbreak csv}):
+0.33 \(\to\) 1.44 (script \texttt{src/\allowbreak branch\_\allowbreak discrimination\_\allowbreak test.\allowbreak py},
+template quantiles from
+\texttt{src/\allowbreak data/\allowbreak desi\_\allowbreak template\_\allowbreak quantiles.\allowbreak csv}):
 
 \begin{longtable}[]{@{}
   >{\raggedright\arraybackslash}p{(\linewidth - 4\tabcolsep) * \real{0.3333}}
@@ -336,7 +337,7 @@ a\(_{0}\)(1.44)/a\(_{0}\)(0.33) = \textbf{2.157 \(\pm\) 0.061}
 
 i.e.~a\(_{0}\) \textbf{rises} by a factor \textasciitilde2.2 from z =
 0.33 to z = 1.44 (matched to the data by the script
-\texttt{branch\_\allowbreak discrimination\_\allowbreak test.\allowbreak py}).
+\texttt{src/\allowbreak branch\_\allowbreak discrimination\_\allowbreak test.\allowbreak py}).
 
 \textbf{Verdict on the density branch.} The density branch predicts
 0.88--0.91 --- a \emph{fall} --- because \(\rho\)\_DE falls while the
@@ -940,10 +941,10 @@ is archived at Zenodo, DOI 10.5281/zenodo.21525537):
 \begin{itemize}
 \tightlist
 \item
-  \texttt{branch\_\allowbreak discrimination\_\allowbreak test.\allowbreak py} (E-1): the two-branch
+  \texttt{src/\allowbreak branch\_\allowbreak discrimination\_\allowbreak test.\allowbreak py} (E-1): the two-branch
   templates over z = 0.33 \(\to\) 1.44; density +16.7\(\sigma\), rate
   +4.4\(\sigma\); the MUSE-preferred power a\(_{0}\) \(\propto\)
-  H\^{}\{1.23\}. Data: \texttt{desi\_\allowbreak template\_\allowbreak quantiles.\allowbreak csv},
+  H\^{}\{1.23\}. Data: \texttt{src/\allowbreak data/\allowbreak desi\_\allowbreak template\_\allowbreak quantiles.\allowbreak csv},
   \texttt{muse\_\allowbreak release\_\allowbreak galaxies.\allowbreak csv}, MUSE-DARK III published
   a\(_{0}\)(z) = (1.00 \(\pm\) 0.04) + (1.59 \(\pm\) 0.11)z.
 \item
@@ -976,8 +977,8 @@ E-1\(''\)).
 This research received no external funding; the author, an independent
 researcher, declares no competing interests. AI assistance: the analysis
 and drafting of this paper were carried out with the assistance of
-Claude (Anthropic); all claims were verified against the corpus's
-reproducing scripts. No AI tool is an author.
+Claude Opus 4.x (Anthropic); all claims were verified against the
+corpus's reproducing scripts. No AI tool is an author.
 
 \section{Companion papers and
 references}\label{companion-papers-and-references}

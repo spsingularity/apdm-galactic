@@ -112,7 +112,7 @@ dark–visible energy exchange.
 
 The observable that separates the branches is the ratio a₀(z_hi)/a₀(z_lo). We fix the DESI-template
 expansion history and evaluate both templates over the MUSE-DARK III interval z: 0.33 → 1.44 (script
-`branch_discrimination_test.py`, template quantiles from `desi_template_quantiles.csv`):
+`src/branch_discrimination_test.py`, template quantiles from `src/data/desi_template_quantiles.csv`):
 
 | branch | prediction | a₀(1.44)/a₀(0.33) |
 |---|---|---|
@@ -141,7 +141,7 @@ sample interval
 
 > a₀(1.44)/a₀(0.33) = **2.157 ± 0.061**
 
-i.e. a₀ **rises** by a factor ~2.2 from z = 0.33 to z = 1.44 (matched to the data by the script `branch_discrimination_test.py`).
+i.e. a₀ **rises** by a factor ~2.2 from z = 0.33 to z = 1.44 (matched to the data by the script `src/branch_discrimination_test.py`).
 
 **Verdict on the density branch.** The density branch predicts 0.88–0.91 — a *fall* — because ρ_DE falls
 while the data rise. The tension is
@@ -479,8 +479,8 @@ by the sign at z ~ 1.
 
 Every quantitative claim reproduces from a released script in <https://github.com/spsingularity/apdm-galactic> (a tagged release is archived at Zenodo, DOI 10.5281/zenodo.21525537):
 
-- `branch_discrimination_test.py` (E-1): the two-branch templates over z = 0.33 → 1.44; density +16.7σ,
-  rate +4.4σ; the MUSE-preferred power a₀ ∝ H^{1.23}. Data: `desi_template_quantiles.csv`,
+- `src/branch_discrimination_test.py` (E-1): the two-branch templates over z = 0.33 → 1.44; density +16.7σ,
+  rate +4.4σ; the MUSE-preferred power a₀ ∝ H^{1.23}. Data: `src/data/desi_template_quantiles.csv`,
   `muse_release_galaxies.csv`, MUSE-DARK III published a₀(z) = (1.00 ± 0.04) + (1.59 ± 0.11)z.
 - `d3prime_emergent_mond.py` (D-3′): the exact gated-Verlinde identity; the elastic/activated/density
   sub-branch exclusions (19.0σ / 27.3σ / 19.5σ); the KMS-tilt RAR pass at 0.057 dex.
@@ -497,7 +497,7 @@ may be edited after freeze, and it predates the deciding data (JWST high-z kinem
 
 This research received no external funding; the author, an independent researcher, declares no competing
 interests. AI assistance: the analysis and drafting of this paper were carried out with the assistance of
-Claude (Anthropic); all claims were verified against the corpus's reproducing scripts. No AI tool is an
+Claude Opus 4.x (Anthropic); all claims were verified against the corpus's reproducing scripts. No AI tool is an
 author.
 
 ## Companion papers and references
