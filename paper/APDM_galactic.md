@@ -477,7 +477,7 @@ by the sign at z ~ 1.
 
 ## 9. Reproducibility
 
-Every quantitative claim reproduces from a released script in <https://github.com/spsingularity/apdm-galactic> (a tagged release is archived at Zenodo, DOI 10.5281/zenodo.21525537):
+Every quantitative claim reproduces from a released script in <https://github.com/spsingularity/apdm-galactic> (a tagged release is archived at Zenodo, DOI 10.5281/zenodo.21525536):
 
 - `src/branch_discrimination_test.py` (E-1): the two-branch templates over z = 0.33 → 1.44; density +16.7σ,
   rate +4.4σ; the MUSE-preferred power a₀ ∝ H^{1.23}. Data: `src/data/desi_template_quantiles.csv`,
